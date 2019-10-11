@@ -1,6 +1,5 @@
 package org.quaestio.kotlinconvertedwebview
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -8,18 +7,14 @@ import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import kotlinx.android.synthetic.main.activity_webview.*
+import kotlinx.android.synthetic.main.activity_webview.webview
 
 class MainActivity : AppCompatActivity() {
 
-    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_webview)
-
         val mWebView = findViewById<WebView>(R.id.webview)
-
         val webSettings = mWebView.settings
         webSettings.javaScriptEnabled = true
         mWebView.loadUrl(getString(R.string.website_url))
@@ -38,12 +33,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             return true
         }
-
-        override fun onPageFinished(view: WebView, url: String) {
-            // TODO Auto-generated method stub
-            super.onPageFinished(view, url)
-        }
-
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
@@ -53,5 +42,4 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onKeyDown(keyCode, event)
     }
-
 }
